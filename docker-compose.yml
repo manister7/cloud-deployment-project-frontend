@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+
+    container_name: frontend
+
+    ports:
+      - "5173:5173"
+
+    environment:
+      - VITE_CATALOG_API=http://localhost:8000
+      - VITE_ORDER_API=http://localhost:8002
+
+    restart: unless-stopped
